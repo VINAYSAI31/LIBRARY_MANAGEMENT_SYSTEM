@@ -1,11 +1,5 @@
 from django.db import models
-# NAME
-# Author
-# Publisher
-# Date of Publication
-# Genre
-# No of Pages
-# Book Location
+
 # Create your models here.
 class BookDetails(models.Model):
     Book_name=models.CharField(max_length=300)
