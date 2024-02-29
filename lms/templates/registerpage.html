@@ -3,42 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <title></title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <style>
 
 
 @import url('https://fonts.googleapis.com/css?family=Raleway:400,700');
 
-* {
-	box-sizing: border-box;
-	margin: 0;
-	padding: 0;
-	font-family: Raleway, sans-serif;
-}
 
 
 
 .container {
-	display: flex;
-
-	align-items: center;
-	justify-content: center;
-	 position: absolute;
-	min-height: 100vh;
-	right: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    min-height: 100vh;
+    right: 2px;
+    width: 80%; /* Increase the width */
+    height: 80%; /* Increase the height */
 }
 
 .screen {
-	background: linear-gradient(90deg, #5D54A4, #7C78B8);
-	position: relative;
-	height: 600px;
-	width: 360px;
-	box-shadow: 0px 0px 24px #5C5696;
+    background: linear-gradient(90deg, #5D54A4, #7C78B8);
+    position: relative;
+    height: 600px; /* Increased height */
+    width: 460px; /* Increased width */
+    box-shadow: 0px 0px 24px #5C5696;
 }
+
 
 .screen__content {
 	z-index: 1;
 	position: relative;
 	height: 100%;
+	width: 80%; /* Increase the width */
+    height: 80%; /* Increase the height */
 }
 
 .screen__background {
@@ -94,9 +94,10 @@
 }
 
 .login {
-	width: 320px;
+	width: 300px;
+
 	padding: 30px;
-	padding-top: 156px;
+	padding-top: 48px;
 }
 
 .login__field {
@@ -129,21 +130,21 @@
 }
 
 .login__submit {
-	background: #fff;
-	font-size: 16px;
-	margin-top: 30px;
-	padding: 11px 20px;
-	border-radius: 26px;
-	border: 1px solid #D4D3E8;
-	text-transform: uppercase;
-	font-weight: 700;
-	display: flex;
-	align-items: center;
-	width: 83%;
-	color: #4C489D;
-	box-shadow: 0px 2px 2px #5C5696;
-	cursor: pointer;
-	transition: .2s;
+    background: #fff;
+    font-size: 15px;
+    margin-top: 23px;
+    padding: 7px 35px;
+    border-radius: 26px;
+    border: 1px solid #D4D3E8;
+    text-transform: uppercase;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    width: 64%;
+    color: #4C489D;
+    box-shadow: 0px 2px 2px #5C5696;
+    cursor: pointer;
+    transition: .2s;
 }
 
 .login__submit:active,
@@ -186,11 +187,11 @@
 	transform: scale(1.5);
 }
      .picture img {
-      width: 615px;
+      width: 550px;
     height: auto;
     position: absolute;
     top: 164px;
-    right: 697px;;
+    right: 891px;;
 }
 
         <!--styling for button-->
@@ -198,8 +199,79 @@
     </style>
 </head>
 <body>
+
+<nav class="navbar navbar-expand-lg " style="background-color: #4C489D;">
+  <div class="container-fluid">
+    <a class="navbar-brand white-text" href="{% url 'homepage' %}">BS</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link  white-text" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link white-text" href="#">Link</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Dropdown
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </li>
+ <li class="nav-item">
+      <a class="nav-link white-text" href="{% url 'location' %}">LOCATION</a>
+     </li>
+      </ul>
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+         <ul class="nav navbar-nav ms-auto">
+
+
+     <li class="nav-item">
+      <a class="nav-link white-text" href="{% url 'userhomepage' %}">USER</a>
+     </li>
+      <li class="nav-item">
+       <a class="nav-link white-text" href="{% url 'libhomepage' %}">LIBRARY</a>
+     </li>
+
+   </ul>
+
+    <ul class="nav navbar-nav ms-auto">
+     <li>
+       {% if user.is_authenticated %}
+       <link class="nav-item">
+       <span class="nav-link">WELCOME, {{user.username}}</span>
+     </li>
+     <li class="nav-item">
+      <a class="nav-link" href="#">LOGOUT</a>
+     </li>
+     {% else %}
+
+     <li class="nav-item">
+      <a class="nav-link white-text" href="{% url 'loginpage' %}">LOGIN</a>
+     </li>
+      <li class="nav-item">
+       <a class="nav-link white-text" href="{% url 'register' %}">REGISTER</a>
+     </li>
+     {% endif %}
+   </ul>
+    </div>
+  </div>
+</nav>
+
+
+              <!--REGITSERRRRRRRRRRRRRRRR-->
 <div class="picture">
-     <img src="{% static 'pics/undraw_remotely_2j6y.svg' %}" alt="Brand Logo">
+     <img src="{% static 'pics/signup.png' %}" alt="Brand Logo">
 </div>
 <div class="container">
 	<div class="screen">
@@ -207,26 +279,46 @@
 			<form class="login">
 				<div class="login__field">
 					<i class="login__icon fas fa-user"></i>
-					<input type="text" class="login__input" placeholder="User name / Email">
+					<input type="text" class="login__input" placeholder="User name">
+				</div>
+				<div class="login__field">
+					<i class="login__icon fas fa-user"></i>
+					<input type="text" class="login__input" placeholder="Email">
+				</div>
+				<div class="login__field">
+    <i class="login__icon fas fa-lock"></i>
+    <select class="login__input" name="role" id="role">
+        <option value="" disabled selected>Select Role</option>
+        <option value="admin">Admin</option>
+        <option value="librarian">Librarian</option>
+        <option value="user">User</option>
+    </select>
+</div>
+				<div class="login__field">
+					<i class="login__icon fas fa-user"></i>
+					<input type="text" class="login__input" placeholder="password">
 				</div>
 				<div class="login__field">
 					<i class="login__icon fas fa-lock"></i>
-					<input type="password" class="login__input" placeholder="Password">
+					<input type="password" class="login__input" placeholder="Confirm Password">
 				</div>
+
+
+
 				<button class="button login__submit">
-					<span class="button__text">Log In Now</span>
+					<span class="button__text">Register</span>
 					<i class="button__icon fas fa-chevron-right"></i>
 				</button>
 			</form>
 			<div class="social-login">
 				<body>
-    <button class="button login__submit">
+    <!--<button class="button login__submit">
         <div class="social-login">
 				<h5>already have an account </h5>
             </div>
 					<span class="button__text">LOGIN</span>
 					<i class="button__icon fas fa-chevron-right"></i>
-				</button>
+				</button>-->
 
 
 
@@ -240,6 +332,95 @@
 		</div>
 	</div>
 </div>
+<div class="footer-basic">
+         <footer>
+            <div class="social"><a href="https://github.com/VINAYSAI31" target="_blank"><i class="icon ion-social-github"></i></a><a href="#"><i class="icon ion-social-linkedin"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-youtube"></i></a></div>
+            <ul class="list-inline text">
+                <li class="list-inline-item"><a href="{% url 'homepage' %}">Home</a></li>
+                <li class="list-inline-item"><a href="#">Services</a></li>
+                <li class="list-inline-item"><a href="#">About</a></li>
+                <li class="list-inline-item"><a href="#">Terms</a></li>
+                <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+            </ul>
+            <p class="copyright">Company Name © 2018</p>
+        </footer>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+<style>
+
+.white-text {
+    color: white;
+}
+
+.footer-basic {
+  padding:40px 0;
+  background-color:#ffffff;
+  color:#4b4c4d;
+   position: relative;
+        top: 900px;
+}
+
+.footer-basic ul {
+  padding:0;
+  list-style:none;
+  text-align:center;
+  font-size:18px;
+  line-height:1.6;
+  margin-bottom:0;
+}
+
+.footer-basic li {
+  padding:0 10px;
+}
+
+.footer-basic ul a {
+  color:inherit;
+  text-decoration:none;
+  opacity:0.8;
+}
+
+.footer-basic ul a:hover {
+  opacity:1;
+}
+
+.footer-basic .social {
+  text-align:center;
+  padding-bottom:25px;
+  top:20px;
+}
+
+.footer-basic .social > a {
+  font-size:36px;
+  width:40px;
+  height:40px;
+  line-height:40px;
+  display:inline-block;
+  text-align:center;
+  border-radius:50%;
+  border:1px solid #ccc;
+  margin:0 8px;
+  color:inherit;
+  opacity:0.75;
+  top:10px;
+}
+
+.footer-basic .social > a:hover {
+  opacity:0.9;
+}
+
+.footer-basic .copyright {
+  margin-top:15px;
+  text-align:center;
+  font-size:13px;
+  color:#aaa;
+  margin-bottom:0;
+}
+
+
+
+  }
+</style>
 
 </body>
 </html>

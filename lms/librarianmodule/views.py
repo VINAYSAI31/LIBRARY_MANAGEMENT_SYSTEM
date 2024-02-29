@@ -4,7 +4,8 @@ from .models import  *
 # Create your views here.
 def bookpost(request):
     return render(request,'lib/bookpost.html')
-
+def viewbooks(request):
+    return render(request,'lib/viewbooks.html')
 
 def add_book(request):
     if request.method == 'POST':
@@ -28,3 +29,9 @@ def add_book(request):
        book_details.save()
        return render(request,'lib/datainserted.html')
     return render(request,'lib/bookpost.html')
+
+
+
+def view_books(request):
+    book_details_list=BookDetails.objects.all()
+    return render(request,'lib/viewbooks.html',{'book_details_list':book_details_list})

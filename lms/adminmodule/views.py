@@ -12,3 +12,5 @@ def userhomepage(request):
     return render(request,'userhomepage.html')
 def libhomepage(request):
     return render(request,'libhomepage.html')
+def locationpage(request):
+    return render(request,'location.html')
