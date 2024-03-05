@@ -58,10 +58,10 @@
      <li>
        {% if user.is_authenticated %}
        <link class="nav-item">
-       <span class="nav-link">WELCOME, {{user.username}}</span>
+       <span class="nav-link" style="color: white;" >WELCOME, {{user.username}}</span>
      </li>
      <li class="nav-item">
-      <a class="nav-link" href="#">LOGOUT</a>
+      <a class="nav-link" style="color: white;" href="{% url 'logout' %}">LOGOUT</a>
      </li>
      {% else %}
 

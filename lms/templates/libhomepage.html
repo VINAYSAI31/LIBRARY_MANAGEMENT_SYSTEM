@@ -1,14 +1,57 @@
 {% extends 'navbar/libnavbar.html' %}
+{% block body %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BOOK NEST</title>
+    <style>
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .welcome-message {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 24px;
+            color: #009688;
+        }
+        .admin-features {
+            margin-top: 40px;
+            text-align: center;
+        }
+        .admin-features a {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px 20px;
+            background-color: #009688;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .admin-features a:hover {
+            background-color: #00796b;
+        }
+    </style>
 </head>
 <body>
-{% block body %}
-<div>
-this is libhomepage
-</div>
-{% endblock %}
+    <div class="container">
+        <h1>Welcome to BOOK NEST</h1>
+        <div class="welcome-message">Welcome back admin, <span style="color: white; background-color: #009688; padding: 5px 10px; border-radius: 5px;">{{ user.username }}</span></div>
+        <div class="admin-features">
+            <a href="{% url 'bookpost' %}">Post Book</a>
+            <a href="{% url 'view_books' %}">View Books</a>
+        </div>
+    </div>
 </body>
 </html>
+{% endblock %}

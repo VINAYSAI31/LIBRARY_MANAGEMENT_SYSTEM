@@ -10,15 +10,12 @@
 
 @import url('https://fonts.googleapis.com/css?family=Raleway:400,700');
 
-
-
-
 .container {
     display: flex;
     align-items: center;
     justify-content: center;
     position: absolute;
-    min-height: 100vh;
+    min-height: 99vh;
     right: 2px;
     width: 80%; /* Increase the width */
     height: 80%; /* Increase the height */
@@ -190,7 +187,7 @@
       width: 550px;
     height: auto;
     position: absolute;
-    top: 164px;
+    top: 389px;
     right: 891px;;
 }
 
@@ -268,6 +265,13 @@
   </div>
 </nav>
 
+{% if messages %}
+{% for message in messages %}
+{% if message.tags %}
+<script>alert ("{{ message }}")</script>
+{% endif %}
+{% endfor %}
+{% endif %}
 
               <!--REGITSERRRRRRRRRRRRRRRR-->
 <div class="picture">
@@ -276,31 +280,31 @@
 <div class="container">
 	<div class="screen">
 		<div class="screen__content">
-			<form class="login">
+			<form class="login" method="POST" action="{% url 'register1' %}">
+                {% csrf_token %}
 				<div class="login__field">
 					<i class="login__icon fas fa-user"></i>
-					<input type="text" class="login__input" placeholder="User name">
+					<input type="text" class="login__input"  name="username" placeholder="User name">
 				</div>
 				<div class="login__field">
 					<i class="login__icon fas fa-user"></i>
-					<input type="text" class="login__input" placeholder="Email">
+					<input type="text" class="login__input" name="email" placeholder="Email">
 				</div>
-				<div class="login__field">
-    <i class="login__icon fas fa-lock"></i>
-    <select class="login__input" name="role" id="role">
-        <option value="" disabled selected>Select Role</option>
-        <option value="admin">Admin</option>
-        <option value="librarian">Librarian</option>
-        <option value="user">User</option>
-    </select>
-</div>
+				   <div class="login__field">
+                         <i class="login__icon fas fa-lock"></i>
+                                 <select class="login__input" name="role" id="role">
+                                             <option value="" disabled selected>Select Role</option>
+                                             <option value="librarian">Librarian</option>
+                                             <option value="user">User</option>
+                                 </select>
+                   </div>
 				<div class="login__field">
 					<i class="login__icon fas fa-user"></i>
-					<input type="text" class="login__input" placeholder="password">
+					<input type="password" class="login__input"name="password" placeholder="password">
 				</div>
 				<div class="login__field">
 					<i class="login__icon fas fa-lock"></i>
-					<input type="password" class="login__input" placeholder="Confirm Password">
+					<input type="password" class="login__input" name="password1"placeholder="Confirm Password">
 				</div>
 
 
