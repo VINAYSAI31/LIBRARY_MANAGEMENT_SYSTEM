@@ -12,6 +12,14 @@
     </style>
 </head>
 <body>
+{% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-success" role="alert">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endif %}
+
 <nav class="navbar navbar-expand-lg " style="background-color: #4C489D;">
   <div class="container-fluid">
     <a class="navbar-brand white-text" href="{% url 'homepage' %}">BS</a>
@@ -24,7 +32,7 @@
           <a class="nav-link  white-text" aria-current="page" href="#">Home</a>
         </li>
         <li class="nav-item">
-         <a class="nav-link white-text" href="{% url 'viewbook' %}">VIEWBOOK</a>
+         <a class="nav-link white-text" href="{% url 'view_books' %}">VIEWBOOK</a>
 
         </li>
         <li class="nav-item dropdown">
@@ -47,12 +55,12 @@
          <ul class="nav navbar-nav ms-auto">
 
 
-     <li class="nav-item">
+     <!--<li class="nav-item">
       <a class="nav-link white-text" href="{% url 'userhomepage' %}">USER</a>
      </li>
       <li class="nav-item">
        <a class="nav-link white-text" href="{% url 'libhomepage' %}">LIBRARY</a>
-     </li>
+     </li>-->
 
    </ul>
 
@@ -63,7 +71,7 @@
        <span class="nav-link" style="color: white;" >WELCOME, {{user.username}}</span>
      </li>
      <li class="nav-item">
-      <a class="nav-link" style="color: white;" href="{% url 'logout' %}">LOGOUT</a>
+      <a class="nav-link" style="color: white;" href="{% url 'homepage' %}">LOGOUT</a>
      </li>
      {% else %}
 
@@ -111,7 +119,7 @@
   background-color:#ffffff;
   color:#4b4c4d;
    position: relative;
-        top: 550px;
+        top: 5000px;
 }
 
 .footer-basic ul {

@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-
+from .forms import FeedbackForm
 # Create your views here.
 def homepage(request):
     return render(request,'homepage.html')
@@ -7,6 +7,10 @@ def loginpage(request):
     return render(request,'loginpage.html')
 def register(request):
     return render(request,'registerpage.html')
+def feedback(request):
+    return render(request,'feedback.html')
+def success(request):
+    return render(request,'success.html')
 
 
 def userhomepage(request):
@@ -75,6 +79,14 @@ def login1(request):
     else:
         return render(request, 'loginpage.html')
 
-def logout(request):
-        auth.logout(request)
-        return render(request, 'homepage.html')
+
+def send_feedback(request):
+    if request.method == 'POST':
+        form = FeedbackForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return render(request, 'success.html')  # Redirect to success page after saving feedback
+    else:
+        form = FeedbackForm()
+    return render(request, 'feedback.html', {'form': form})
+

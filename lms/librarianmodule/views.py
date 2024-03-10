@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from pyexpat.errors import messages
+
 from .models import  *
 
 # Create your views here.
@@ -16,6 +18,7 @@ def add_book(request):
        Genre = request.POST.get('genre')
        Pages=request.POST.get('pages')
        location = request.POST.get('location')
+       picture = request.FILES.get('picture')
 
        book_details = BookDetails(
            Book_name=Book_name,
@@ -25,8 +28,10 @@ def add_book(request):
            Genre=Genre,
            Pages=Pages,
            Location=location,
+           Picture=picture,
        )
        book_details.save()
+
        return render(request,'lib/datainserted.html')
     return render(request,'lib/bookpost.html')
 

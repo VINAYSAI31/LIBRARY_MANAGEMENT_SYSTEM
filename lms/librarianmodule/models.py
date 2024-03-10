@@ -9,6 +9,7 @@ class BookDetails(models.Model):
     Genre=models.CharField(max_length=200)
     Pages = models.IntegerField()
     Location=models.TextField(max_length=300)
+    Picture = models.ImageField(upload_to="books/images",default="")
 
     def __str__(self):
         return self.Book_name

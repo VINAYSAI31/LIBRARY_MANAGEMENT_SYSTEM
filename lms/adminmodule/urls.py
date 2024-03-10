@@ -12,5 +12,8 @@ urlpatterns = [
     path('signup',views.register,name='register'),
     path('signup1',views.signup1,name='register1'),
     path('location',views.locationpage,name='location'),
-    path('logout',views.logout,name='logout'),
+path('feedback',views.feedback, name='feedback'),
+    path('send_feedback', views.send_feedback, name='send_feedback'),
+    path('sucess', views.success, name='sucess'),
+
 ]

@@ -14,3 +14,8 @@ class BookDetails(models.Model):
 
     def __str__(self):
         return self.Book_name
+
+# models.py
+from django.db import models
+
+

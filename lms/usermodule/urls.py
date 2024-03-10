@@ -2,5 +2,10 @@ from django.contrib import admin
 from django.urls import path, include
 from . import views
 urlpatterns = [
-    path('viewbook', views.viewbook, name='viewbook'),
+
+    path('genre',views.genre, name='genre'),
+
+
+
+path('logout/', views.logout_view, name='logout'),
 ]
