@@ -258,7 +258,75 @@ body{
 
 
 <!--;cardsssss-->
-
+<div class="card">
+        <!--{% if book_details.Picture %}
+            <img src="{{ book_details.Picture.url }}" alt="Book Cover">
+        {% else %}-->
+            <!-- Provide a placeholder image if no picture is available -->
+            <img src="{% static 'pics/one.jpeg' %}" alt="Placeholder Image">
+        <!--{% endif %}-->
+        <div class="descriptions">
+            <h3>DEMON_SLAYE</h3>
+            <h6>Author: Sasuke</br>
+                Publisher:Japan</br>
+                Date: 10/05/2004 <br>
+                Genre:Cartoon</br>
+                Pages:120</br>
+                Location:2ndfloor-kids</h6>
+            <a href="{% url 'order' %}">
+    <button>
+        <i class="fab fa-youtube"></i>
+        ORDER
+    </button>
+</a>
+        </div>
+    </div>
+<div class="card">
+        <!--{% if book_details.Picture %}
+            <img src="{{ book_details.Picture.url }}" alt="Book Cover">
+        {% else %}-->
+            <!-- Provide a placeholder image if no picture is available -->
+            <img src="{% static 'pics/demon.jpeg' %}" alt="Placeholder Image">
+        <!--{% endif %}-->
+        <div class="descriptions">
+            <h3>DEMON_SLAYE</h3>
+            <h6>Author: Sasuke</br>
+                Publisher:Japan</br>
+                Date: 10/05/2004 <br>
+                Genre:Cartoon</br>
+                Pages:120</br>
+                Location:2ndfloor-kids</h6>
+            <a href="{% url 'order' %}">
+    <button>
+        <i class="fab fa-youtube"></i>
+        ORDER
+    </button>
+</a>
+        </div>
+    </div>
+<div class="card">
+        <!--{% if book_details.Picture %}
+            <img src="{{ book_details.Picture.url }}" alt="Book Cover">
+        {% else %}-->
+            <!-- Provide a placeholder image if no picture is available -->
+            <img src="{% static 'pics/dore.jpeg' %}" alt="Placeholder Image">
+        <!--{% endif %}-->
+        <div class="descriptions">
+            <h3>DOREMON</h3>
+            <h6>Author: Sasuke</br>
+                Publisher:Japan</br>
+                Date: 10/05/2004 <br>
+                Genre:Cartoon</br>
+                Pages:120</br>
+                Location:2ndfloor-kids</h6>
+            <a href="{% url 'order' %}">
+    <button>
+        <i class="fab fa-youtube"></i>
+      ORDER
+    </button>
+</a>
+        </div>
+    </div>
 
   {% for book_details in book_details_list %}
     <div class="card">
@@ -276,12 +344,13 @@ body{
                 Genre:{{ book_details.Genre}}</br>
                 Pages:{{ book_details.Pages }}</br>
                 Location:{{ book_details.Location}}</h6>
-            <button>
-                <i class="fab fa-youtube"></i>
-                READ
-            </button>
-        </div>
-    </div>
+            <a href="{% url 'order' %}">
+    <button>
+        <i class="fab fa-youtube"></i>
+        ORDER
+    </button>
+</a>
+
 {% endfor %}
 
 

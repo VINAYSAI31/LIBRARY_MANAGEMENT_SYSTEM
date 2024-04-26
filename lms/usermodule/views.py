@@ -21,7 +21,7 @@ def logout_view(request):
     return render(request, 'homepage.html')
 
 
-def view_books(request):
+def view_book(request):
     book_details_list=BookDetails.objects.all()
     return render(request,'user/viewbook.html',{'book_details_list':book_details_list})
 

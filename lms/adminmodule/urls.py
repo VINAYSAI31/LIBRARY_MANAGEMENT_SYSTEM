@@ -16,4 +16,5 @@ path('feedback',views.feedback, name='feedback'),
     path('send_feedback', views.send_feedback, name='send_feedback'),
     path('sucess', views.success, name='sucess'),
 
+
 ]
