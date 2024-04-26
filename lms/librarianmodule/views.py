@@ -14,6 +14,8 @@ def payement(request):
     return render(request,'lib/payement.html')
 def card(request):
     return render(request,'lib/card.html')
+def done(request):
+    return render(request,'lib/done.html')
 def add_book(request):
     if request.method == 'POST':
        Book_name = request.POST.get('title')
